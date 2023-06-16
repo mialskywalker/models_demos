@@ -8,6 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div>It works</div>
+    <div style="display: flex; justify-content: space-between">
+        <div>
+            {% for employee in employees %}
+                {{ employee.first_name }} {{ employee.last_name }} {{ employee.age }} - {{ employee.department.name }}
+                <a href="{% url 'delete_employee' pk=employee.pk %}">Delete</a>
+            {% endfor %}
+        </div>
+        <div>
+            {% for employee in employees2 %}
+                {{ employee.first_name }} {{ employee.last_name }} - {{ employee.department.name }}
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
